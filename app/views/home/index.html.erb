@@ -4,15 +4,34 @@
   <div class="container" ng-controller="ContentController as vm">
     <h1 class="jumbotron text-center">Tripcited</h1>
     <button ng-click="vm.getData()">Get Some Data</button>
-    <div ng-if="vm.allContents" ng-repeat="content in vm.allContents">
-      <ul>
+    <div></div>
+    <div ng-if="vm.allContents" ng-repeat="content in vm.allContents" class="tiles">
+
+      <div>
+        <div id="image">
+          <img ng-src="{{content.image_link}}" />
+        </div>
+        <div id="tileBody">
+          <h3>{{content.title}}</h3>
+          <p>{{content.body}}</p>
+        </div>
+        <div id="votes">
+          <span id="upvotes">{{content.upvotes}}</span>
+          <span id="downvotes">{{content.downvotes}}</span>
+        </div>
+      </div>
+      <!-- <ul>
         <li>{{content.title}}</li>
         <li>{{content.image_link}}</li>
         <li>{{content.source}}</li>
         <li>{{content.body}}</li>
         <li>{{content.upvotes}}</li>
         <li>{{content.downvotes}}</li>
-      </ul>
+      </ul> -->
     </div>
   </div>
+</script>
+
+<script type="text/ng-template" id="content_show.html">
+
 </script>
