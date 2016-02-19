@@ -29,13 +29,13 @@ function ContentController($http){
     self.newContents = {};
   };
 
-  // vm.deleteContents = function(content){
-  //   $http
-  //   .delete('http://localhost:3000/api/contents' + contents._id)
-  //   .then(function(response){
-  //     var index = self.all.indexOf(contents);
-  //     self.all.splice(index, 1);
-  //   });
-  // }
+  vm.deleteContents = function(content){
+    $http
+    .delete('http://localhost:3000/api/contents' + contents._id)
+    .then(function(response){
+      var index = self.all.indexOf(contents);
+      self.all.splice(index, 1);
+    });
+  }
 
 }
