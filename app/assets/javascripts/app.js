@@ -1,5 +1,5 @@
 angular.module('tripcited', ['ui.router'])
-  .config('MainRouter');
+  .config(MainRouter);
 
 function MainRouter($stateProvider, $urlRouterProvider) {
   $stateProvider

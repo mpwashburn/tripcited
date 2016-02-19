@@ -12,7 +12,8 @@ function ContentController($http){
 
 
   vm.getData = function(){
-    $http.get('http://localhost:3000/api/contents')
+    $http
+    .get('http://localhost:3000/api/contents')
       .success(function(data) {
         console.log(data);
         vm.allContents = data;
@@ -28,7 +29,7 @@ function ContentController($http){
     self.newContents = {};
   };
 
-  // vm.deleteContents(contents){
+  // vm.deleteContents = function(content){
   //   $http
   //   .delete('http://localhost:3000/api/contents' + contents._id)
   //   .then(function(response){
