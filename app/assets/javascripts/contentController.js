@@ -19,14 +19,14 @@ function ContentController($http){
       });
   }
 
-  // vm.addContents(){
-  //   $http
-  //   .post('http://localhost:3000/api/contents', self.newContents)
-  //   .then(function(response){
-  //     getData();
-  //   });
-  //   self.newContents = {};
-  // }
+  vm.addContents = function () {
+    $http
+    .post('http://localhost:3000/api/contents', self.newContents)
+    .then(function(response){
+      getData();
+    });
+    self.newContents = {};
+  };
 
   // vm.deleteContents(contents){
   //   $http
