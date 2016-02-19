@@ -1,0 +1,18 @@
+<ui-view></ui-view>
+
+<script type="text/ng-template" id="contents_index.html">
+  <div class="container" ng-controller="ContentController as vm">
+    <h1 class="jumbotron text-center">Tripcited</h1>
+    <button ng-click="vm.getData()">Get Some Data</button>
+    <div ng-if="vm.allContents" ng-repeat="content in vm.allContents">
+      <ul>
+        <li>{{content.title}}</li>
+        <li>{{content.image_link}}</li>
+        <li>{{content.source}}</li>
+        <li>{{content.body}}</li>
+        <li>{{content.upvotes}}</li>
+        <li>{{content.downvotes}}</li>
+      </ul>
+    </div>
+  </div>
+</script>

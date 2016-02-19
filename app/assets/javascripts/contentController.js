@@ -1,18 +1,19 @@
-(function() {
-'use strict';
-app.controller('tripcited', tripcited)
+angular.module('tripcited').controller('ContentController', ContentController)
 
-contentController.$inject = ['$http'];
+ContentController.$inject = ['$http'];
 
-function ContentController($http) {
-        var vm = this;
+function ContentController($http){
+  var vm = this;
 
-        vm.test = 'This is only a test...';
-    }
+  vm.test = 'This is only a test...';
+  vm.allContents = true;
 
+  vm.getData = function(){
+    $http.get('http://localhost:3000/api/contents')
+      .success(function(data) {
+        console.log(data);
+        vm.allContents = data;
+      });
+  }
 
-$http.get('http://tripcited.herokuapp.com/api/contents')
-  .success(function(data) {
-           vm.allContents = data;
-       })
-})();
+}

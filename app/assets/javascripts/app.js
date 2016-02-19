@@ -1,12 +1,11 @@
-var app = angular.module('tripcited', [])
-app.config(MainRouter);
+angular.module('tripcited', ['ui.router'])
+  .config(MainRouter);
 
 function MainRouter($stateProvider, $urlRouterProvider) {
-
   $stateProvider
     .state('home',{
-      url: "/home",
-      templateUrl: 'home/_home.html'
+      url: "/",
+      templateUrl: 'contents_index.html'
     })
     $urlRouterProvider.otherwise("/");
 }
