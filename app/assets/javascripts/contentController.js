@@ -9,9 +9,15 @@ function ContentController($http){
   vm.addContents = addContents;
   vm.deleteContents = deleteContents;
   vm.getData = getData;
+  vm.content = {
+    title: "",
+    body: "",
+    image_link: "",
+    source: ""
+  }
 
 
-  vm.getData = function(){
+  function getData(){
     $http
     .get('http://localhost:3000/api/contents')
       .success(function(data) {
@@ -20,22 +26,23 @@ function ContentController($http){
       });
   }
 
-  vm.addContents = function () {
+  function addContents() {
+    console.log(vm.content)
     $http
-    .post('http://localhost:3000/api/contents', self.newContents)
+    .post('http://localhost:3000/api/contents', vm.content)
     .then(function(response){
       getData();
     });
     self.newContents = {};
-  };
+  }
 
-  // vm.deleteContents = function (content){
-  //   $http
-  //   .delete('http://localhost:3000/api/contents' + contents._id)
-  //   .then(function(response){
-  //     var index = self.all.indexOf(contents);
-  //     self.all.splice(index, 1);
-  //   });
-  // }
+  function deleteContents(content){
+    $http
+    .delete('http://localhost:3000/api/contents/' + content.id)
+    .then(function(response){
+      var index = vm.allContents.indexOf(content);
+      vm.allContents.splice(index, 1);
+    });
+  }
 
 }

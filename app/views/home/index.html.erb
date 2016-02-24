@@ -7,13 +7,13 @@
   <form ng-submit="vm.addContents()" id="addContents">
     <div>
     <label for="addContent-title">Title</label>
-    <input type="text" id="addContent-title" ng-model="vm.addContents.title" placeholder="Title">
+    <input type="text" id="addContent-title" ng-model="vm.content.title" placeholder="Title">
     <label for="addContent-image_link">Image</label>
-    <input type="text" id="addContent-image_link" ng-model="vm.addContent.image_link" placeholder="Add Image">
+    <input type="text" id="addContent-image_link" ng-model="vm.content.image_link" placeholder="Add Image">
     <label for="addContent-source">URL</label>
-    <input type="text" id="addContent-source" ng-model="vm.addContent.source" placeholder="add url">
+    <input type="text" id="addContent-source" ng-model="vm.content.source" placeholder="add url">
     <label for="addContent-body">Body of Post</label>
-    <input type="text" id="addContent-body" ng-model="vm.addContent.body" placeholder="Add body of post">
+    <input type="text" id="addContent-body" ng-model="vm.content.body" placeholder="Add body of post">
     <input type="submit" value="Add Post">
     </form>
 
@@ -28,6 +28,7 @@
         <li>{{content.body}}</li>
         <li>{{content.upvotes}}</li>
         <li>{{content.downvotes}}</li>
+        <button ng-click="vm.deleteContents(content)">Delete</button>
       </ul>
     </div>
   </div>
